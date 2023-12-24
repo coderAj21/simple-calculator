@@ -16,6 +16,12 @@ const Calculator = () => {
             if (data==="%"){
                 const val=(parseFloat(input)/100)%100000000+"";
                 setInput(val.length>9?"E+245625":val);
+                return;
+            }
+            if (data==="C"){
+                const val=input.substring(0,input.length-1);
+                setInput(val);
+                return;
             }
             if ("0123456789+-*/".includes(data)){
                 if (input==='0'){
@@ -67,8 +73,9 @@ const Calculator = () => {
                 
             </div>
             <div className='flex text-3xl font-semibold gap-x-5  text-white hover:cursor-pointer'>
-                <p onClick={()=>(clickHandler("0"))} className='w-[160px] max-h-[70px] p-4 text-left bg-[#1C1C1C] rounded-full hover:bg-[#505050]'>0</p>
+                <p onClick={()=>(clickHandler("0"))} className='w-[70px] aspect-square p-4 text-center bg-[#1C1C1C] rounded-full hover:bg-[#505050]'>0</p>
                 <p onClick={()=>(clickHandler("."))} className='w-[70px] aspect-square p-4 text-center bg-[#1C1C1C] rounded-full hover:bg-[#505050]'>.</p>
+                <p onClick={()=>(clickHandler("C"))} className='w-[70px] aspect-square p-4 text-center bg-[#1C1C1C] rounded-full hover:bg-[#505050]'>C</p>
                 <p onClick={()=>(clickHandler("="))} className='w-[70px] aspect-square p-4 text-center bg-[#FF9500] rounded-full  hover:bg-slate-100 hover:text-[#FF9500]'>=</p>
             </div>
         </div>
