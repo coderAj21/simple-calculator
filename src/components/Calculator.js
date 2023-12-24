@@ -32,7 +32,7 @@ const Calculator = () => {
             } 
             if (data==="="){
                 const result=eval(input);
-                setInput(result);
+                setInput(result+"");
             }
         }catch(error){
             setInput("Error");
